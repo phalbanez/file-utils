@@ -1,5 +1,5 @@
 # file-utils
-Some useful functions for handling files (for indoor use)
+Some useful functions for handling files in Dart (for internal use)
 
 <pre>
 Usage: file_utils &lt;command&gt; [arguments]
