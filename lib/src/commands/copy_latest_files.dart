@@ -71,7 +71,6 @@ class CopyLatestFilesCommand extends Command {
       if (entity is File) {
         var dateFile = DateTime.now();
         await entity.stat().then((value) => dateFile = value.modified);
-        print(dateFile);
         files.add(FilenameAndDate(entity.path, dateFile));
       }
     }
