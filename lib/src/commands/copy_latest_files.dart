@@ -95,6 +95,19 @@ class CopyLatestFilesCommand extends Command {
     try {
       final file = File(sourceFileName);
       await file.copy(destFileName);
+      await _setLastModified(destFileName, await file.lastModified());
+      return true;
+    } on Exception catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  Future<bool> _setLastModified(
+      final String fileName, final DateTime lastModified) async {
+    try {
+      final file = File(fileName);
+      await file.setLastModified(lastModified);
       return true;
     } on Exception catch (e) {
       print(e);
